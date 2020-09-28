@@ -1,49 +1,49 @@
 Fare=[]
 sectorConnectionsStr=input()
-listSecCon=sectorConnectionsStr.split(" ")
+listSectorsConnections=sectorConnectionsStr.split(" ")
 i=0
-for values in listSecCon:
-    listSecCon[i]=int(values)
+for values in listSectorsConnections:
+    listSectorsConnections[i]=int(values)
     i+=1
-    if int(values)==listSecCon[0]:
-        if listSecCon[0]>=1 and listSecCon[0]<=50000:pass
+    if int(values)==listSectorsConnections[0]:
+        if listSectorsConnections[0]>=1 and listSectorsConnections[0]<=50000:pass
         else:exit()
-    if int(values)==listSecCon[1]:
-        if listSecCon[1]>=1 and listSecCon[1]<=500000:pass
+    if int(values)==listSectorsConnections[1]:
+        if listSectorsConnections[1]>=1 and listSectorsConnections[1]<=500000:pass
         else:exit()
 ABFare=[]
 i=0
-while(i<listSecCon[1]):
+while(i<listSectorsConnections[1]):
     ABFare.append(input())
     i+=1
 i=0
-for A_B_Fare in ABFare:
-    ABFare[i]=A_B_Fare.split(" ")
+for SectorFare in ABFare:
+    ABFare[i]=SectorFare.split(" ")
     i+=1
-for newSplit in ABFare:
+for strFare in ABFare:
     i=0
-    for vals in newSplit:
-        newSplit[i]=int(vals)
+    for vals in strFare:
+        strFare[i]=int(vals)
         i+=1
 cacheList1=[]
 i=0
-for someVals in ABFare:
-    if someVals[0]==1:
-        cacheList1.append([someVals[1],someVals[2]])
+for SectorFare1 in ABFare:
+    if SectorFare1[0]==1:
+        cacheList1.append([SectorFare1[1],SectorFare1[2]])
     else:pass
     i+=1
 cacheList2=[]
 while(1):
     for secs in cacheList1:
-        if secs[0]==listSecCon[0]:
+        if secs[0]==listSectorsConnections[0]:
             Fare.append(secs[1])
-        elif secs[0]<listSecCon[0]:
-            for someVals in ABFare:
-                if someVals[0]==secs[0]:
-                    if someVals[2]-secs[1]<0:
-                        someVals[2]=secs[1]
+        elif secs[0]<listSectorsConnections[0]:
+            for SectorFare1 in ABFare:
+                if SectorFare1[0]==secs[0]:
+                    if SectorFare1[2]-secs[1]<0:
+                        SectorFare1[2]=secs[1]
                     else:pass
-                    cacheList2.append([someVals[1],(someVals[2]-secs[1])+secs[1]])  
+                    cacheList2.append([SectorFare1[1],(SectorFare1[2]-secs[1])+secs[1]])  
                 else:pass
         else:exit()
     cacheList1=cacheList2
